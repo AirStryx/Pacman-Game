@@ -1,7 +1,6 @@
 #include "MiniginPCH.h"
 #include "InputComponent.h"
 
-
 InputComponent::InputComponent()
 	:BaseComponent(Types::INPUT)
 {
