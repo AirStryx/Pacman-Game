@@ -1,0 +1,23 @@
+﻿  MiniginPCH.cpp
+  BaseComponent.cpp
+  Font.cpp
+  GameObject.cpp
+f:\school\programming_4\exam_assignment\minigin\gameobject.cpp(12): error C2220: warning treated as error - no 'object' file generated
+f:\school\programming_4\exam_assignment\minigin\gameobject.cpp(12): warning C4018: '<': signed/unsigned mismatch
+f:\school\programming_4\exam_assignment\minigin\gameobject.cpp(20): warning C4018: '<': signed/unsigned mismatch
+f:\school\programming_4\exam_assignment\minigin\gameobject.cpp(29): warning C4018: '<': signed/unsigned mismatch
+f:\school\programming_4\exam_assignment\minigin\gameobject.cpp(44): warning C4018: '<': signed/unsigned mismatch
+  InputComponent.cpp
+  InputManager.cpp
+  Log.cpp
+  Minigin.cpp
+  RenderComponent.cpp
+  Renderer.cpp
+  ResourceManager.cpp
+  Scene.cpp
+  SceneManager.cpp
+  TextComponent.cpp
+  Texture2D.cpp
+  TextureComponent.cpp
+  Transform.cpp
+  Generating Code...
