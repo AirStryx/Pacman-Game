@@ -4,8 +4,7 @@ enum class Types
 	INPUT,
 	RENDER,
 	TEXTURE,
-	TEXT,
-	MOVE
+	TEXT
 };
 class BaseComponent
 {

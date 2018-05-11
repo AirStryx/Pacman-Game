@@ -1,6 +1,5 @@
 #pragma once
 #include "BaseComponent.h"
-#include "Observer.h"
 #include "InputManager.h"
 #include "GameObject.h"
 enum class MoveDirection
@@ -22,7 +21,7 @@ class InputComponent : public BaseComponent
 		void HandleInput();
 
 	private:
-		std::shared_ptr<dae::GameObject> m_GameObj;
+		std::weak_ptr<dae::GameObject> m_GameObj;
 		std::unique_ptr<Command> DpadUp;
 		std::unique_ptr<Command> DpadDown;
 		std::unique_ptr<Command> DpadLeft;

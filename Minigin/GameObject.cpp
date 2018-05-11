@@ -4,6 +4,7 @@
 #include "Renderer.h"
 #include "InputComponent.h"
 #include "RenderComponent.h"
+#include "TextureComponent.h"
 
 dae::GameObject::~GameObject() = default;
 
@@ -25,8 +26,19 @@ void dae::GameObject::Render() const
 
 void dae::GameObject::SetPosition(float x, float y)
 {
-	UNREFERENCED_PARAMETER(x);
-	UNREFERENCED_PARAMETER(y);
+	m_Position.x = x;
+	m_Position.y = y;
+	std::shared_ptr<TextureComponent> texture = std::static_pointer_cast<TextureComponent>(GetComponent(Types::TEXTURE));
+
+	if (texture != nullptr)
+	{
+		float w = texture->getWidth() / 2;
+		float h = texture->getHeight() / 2;
+
+		texture->SetPosition(m_Position.x - w, m_Position.y + h);
+
+	}
+
 }
 
 void dae::GameObject::AddComponent(std::shared_ptr<BaseComponent> comp)

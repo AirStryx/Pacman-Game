@@ -12,6 +12,10 @@ public:
 	void Render() override;
 	void SetTexture(const std::string& filename);
 	void SetPosition(float x, float y, float width = 0.f, float height = 0.f);
+	void setWidthHeight(float Width, float Height) { m_width = Width, m_height = Height; }
+
+	float getWidth() { return m_width; }
+	float getHeight() { return m_height; }
 
 private:
 	dae::Transform mTransform;

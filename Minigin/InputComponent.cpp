@@ -1,6 +1,6 @@
 #include "MiniginPCH.h"
+#include <vld.h>
 #include "InputComponent.h"
-#include "InputManager.h"
 #include "GameObject.h"
 #include "command.h"
 #include <iostream>
@@ -19,24 +19,23 @@ InputComponent::~InputComponent()
 
 void InputComponent::Update(const float deltaTime)
 {
-	UNREFERENCED_PARAMETER(deltaTime);
 	HandleInput();
+	dae::Pos pos = m_GameObj.lock()->GetPosition();
 	switch (m_Direction)
 	{
 	case MoveDirection::UP:
-		std::cout << "UP\n";
+		m_GameObj.lock()->SetPosition(pos.x, pos.y - (100 * deltaTime));
 		break;
 	case MoveDirection::DOWN:
-		std::cout << "DOWN\n";
+		m_GameObj.lock()->SetPosition(pos.x, pos.y + (100 * deltaTime));
 		break;
 	case MoveDirection::LEFT:
-		std::cout << "LEFT\n";
+		m_GameObj.lock()->SetPosition(pos.x - (100 * deltaTime), pos.y);
 		break;
 	case MoveDirection::RIGHT:
-		std::cout << "RIGHT\n";
+		m_GameObj.lock()->SetPosition(pos.x + (100 * deltaTime), pos.y);
 		break;
 	case MoveDirection::NONE:
-		std::cout << "NONE\n";
 		break;
 	default:
 		break;
@@ -48,7 +47,6 @@ void InputComponent::Render()
 }
 void InputComponent::SetCommand(dae::ControllerButton button, std::unique_ptr<Command>& com)
 {
-
 	switch (button)
 	{
 	case dae::ControllerButton::DPADUP:
@@ -63,12 +61,15 @@ void InputComponent::SetCommand(dae::ControllerButton button, std::unique_ptr<Co
 	case dae::ControllerButton::DPADRIGHT:
 		DpadRight = std::move(com);
 		break;
+	default:
+		break;
 	}
 }
 void InputComponent::SetGameObj(std::shared_ptr<dae::GameObject>& gameObj)
 {
 	m_GameObj = gameObj;
 }
+
 void InputComponent::HandleInput()
 {
 	auto& InputM = dae::InputManager::GetInstance();
