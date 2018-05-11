@@ -6,10 +6,10 @@ namespace dae
 {
 	enum class ControllerButton
 	{
-		ButtonA,
-		ButtonB,
-		ButtonX,
-		ButtonY
+		DPADUP,
+		DPADDOWN,
+		DPADLEFT,
+		DPADRIGHT
 	};
 
 	class InputManager final : public Singleton<InputManager>

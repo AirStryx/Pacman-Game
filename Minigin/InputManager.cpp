@@ -28,14 +28,14 @@ bool dae::InputManager::IsPressed(ControllerButton button) const
 {
 	switch (button)
 	{
-	case ControllerButton::ButtonA:
-		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_A;
-	case ControllerButton::ButtonB:
-		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_B;
-	case ControllerButton::ButtonX:
-		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_X;
-	case ControllerButton::ButtonY:
-		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_Y;
+	case ControllerButton::DPADUP:
+		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP;
+	case ControllerButton::DPADDOWN:
+		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN;
+	case ControllerButton::DPADLEFT:
+		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT;
+	case ControllerButton::DPADRIGHT:
+		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT;
 	default: return false;
 	}
 }

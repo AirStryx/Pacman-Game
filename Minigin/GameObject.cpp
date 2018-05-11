@@ -23,6 +23,12 @@ void dae::GameObject::Render() const
 	}
 }
 
+void dae::GameObject::SetPosition(float x, float y)
+{
+	UNREFERENCED_PARAMETER(x);
+	UNREFERENCED_PARAMETER(y);
+}
+
 void dae::GameObject::AddComponent(std::shared_ptr<BaseComponent> comp)
 {
 	bool notSeen = true;
