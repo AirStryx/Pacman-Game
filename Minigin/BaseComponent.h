@@ -4,13 +4,14 @@ enum class Types
 	INPUT,
 	RENDER,
 	TEXTURE,
-	TEXT
+	TEXT,
+	PICKUP
 };
 class BaseComponent
 {
 public:
 	BaseComponent(Types type);
-	~BaseComponent();
+	virtual ~BaseComponent();
 	virtual void Update(const float deltaTime) = 0;
 	virtual void Render() = 0;
 

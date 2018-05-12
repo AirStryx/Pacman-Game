@@ -22,6 +22,7 @@ namespace dae
 		Pos GetPosition() { return m_Position; };
 		void AddComponent(std::shared_ptr<BaseComponent> comp);
 		std::shared_ptr<BaseComponent> GetComponent(Types type);
+		void Kill() { m_IsAlive = false; }
 
 		GameObject() = default;
 		~GameObject();
@@ -31,6 +32,7 @@ namespace dae
 		GameObject& operator=(GameObject&& other) = delete;
 
 	private:
+		bool m_IsAlive{ true };
 		Transform mTransform;
 		std::shared_ptr<Texture2D> mTexture;
 		std::vector<std::shared_ptr<BaseComponent>> m_Components;

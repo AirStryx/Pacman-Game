@@ -4,7 +4,7 @@ class RenderComponent : public BaseComponent
 {
 public:
 	RenderComponent();
-	~RenderComponent();
+	virtual ~RenderComponent();
 	void Update(const float deltaTime) override;
 	void Render() override;
 };

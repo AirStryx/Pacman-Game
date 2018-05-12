@@ -10,17 +10,23 @@ dae::GameObject::~GameObject() = default;
 
 void dae::GameObject::Update(const float deltaTime)
 {
-	for (int i = 0; i < m_Components.size(); i++)
+	if (m_IsAlive)
 	{
-		m_Components[i]->Update(deltaTime);
+		for (int i = 0; i < m_Components.size(); i++)
+		{
+			m_Components[i]->Update(deltaTime);
+		}
 	}
 }
 
 void dae::GameObject::Render() const
 {
-	for (int i = 0; i < m_Components.size(); i++)
+	if (m_IsAlive)
 	{
-		m_Components[i]->Render();
+		for (int i = 0; i < m_Components.size(); i++)
+		{
+			m_Components[i]->Render();
+		}
 	}
 }
 

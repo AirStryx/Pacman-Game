@@ -1,15 +1,2 @@
 ﻿  Minigin.cpp
-     Creating library F:\school\Programming_4\Exam_Assignment\Pacman-Game\x64\Debug\Minigin.lib and object F:\school\Programming_4\Exam_Assignment\Pacman-Game\x64\Debug\Minigin.exp
-  Minigin.vcxproj -> F:\school\Programming_4\Exam_Assignment\Pacman-Game\x64\Debug\Minigin.exe
-  F:\school\Programming_4\Exam_Assignment\Pacman-Game\3rdParty\SDL2\lib\x64\SDL2.dll
-  1 File(s) copied
-  F:\school\Programming_4\Exam_Assignment\Pacman-Game\3rdParty\SDL2_image\lib\x64\libjpeg-9.dll
-  F:\school\Programming_4\Exam_Assignment\Pacman-Game\3rdParty\SDL2_image\lib\x64\libpng16-16.dll
-  F:\school\Programming_4\Exam_Assignment\Pacman-Game\3rdParty\SDL2_image\lib\x64\libtiff-5.dll
-  F:\school\Programming_4\Exam_Assignment\Pacman-Game\3rdParty\SDL2_image\lib\x64\libwebp-7.dll
-  F:\school\Programming_4\Exam_Assignment\Pacman-Game\3rdParty\SDL2_image\lib\x64\SDL2_image.dll
-  F:\school\Programming_4\Exam_Assignment\Pacman-Game\3rdParty\SDL2_image\lib\x64\zlib1.dll
-  6 File(s) copied
-  F:\school\Programming_4\Exam_Assignment\Pacman-Game\3rdParty\SDL2_ttf\lib\x64\libfreetype-6.dll
-  F:\school\Programming_4\Exam_Assignment\Pacman-Game\3rdParty\SDL2_ttf\lib\x64\SDL2_ttf.dll
-  2 File(s) copied
+f:\school\programming_4\exam_assignment\pacman-game\minigin\minigin.cpp(1): fatal error C1041: cannot open program database 'F:\school\Programming_4\Exam_Assignment\Pacman-Game\Minigin\x64\Debug\vc141.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS

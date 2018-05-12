@@ -11,7 +11,7 @@ class InputComponent : public BaseComponent
 	{
 	public:
 		InputComponent();
-		~InputComponent();
+		virtual ~InputComponent();
 		void Update(const float deltaTime) override;
 		void Render() override;
 		void SetCommand(dae::ControllerButton button, std::unique_ptr<Command>& com);

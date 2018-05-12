@@ -7,7 +7,7 @@ class TextureComponent : public BaseComponent
 {
 public:
 	TextureComponent();
-	~TextureComponent();
+	virtual ~TextureComponent();
 	void Update(const float deltaTime) override;
 	void Render() override;
 	void SetTexture(const std::string& filename);
