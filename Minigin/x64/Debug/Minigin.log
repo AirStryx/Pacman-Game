@@ -1,2 +1,2 @@
 ﻿  Minigin.cpp
-f:\school\programming_4\exam_assignment\pacman-game\minigin\minigin.cpp(1): fatal error C1041: cannot open program database 'F:\school\Programming_4\Exam_Assignment\Pacman-Game\Minigin\x64\Debug\vc141.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS
+f:\school\programming_4\exam_assignment\pacman-game\minigin\minigin.cpp(1): fatal error C1041: cannot open program database 'F:\school\Programming_4\Exam_Assignment\Pacman-Game\Minigin\x64\Debug\vc141.pdb'; if multiple CL.EXE write to the same .PDB file, please use /FS
