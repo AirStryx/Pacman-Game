@@ -1,9 +1,7 @@
 #include "MiniginPCH.h"
 #include <vld.h>
 #include "InputComponent.h"
-#include "GameObject.h"
 #include "command.h"
-#include <iostream>
 
 
 

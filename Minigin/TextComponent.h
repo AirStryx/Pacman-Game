@@ -8,7 +8,7 @@ class TextComponent : public BaseComponent
 {
 public:
 	TextComponent();
-	virtual ~TextComponent();
+	~TextComponent();
 	void Update(const float deltaTime) override;
 	void Render() override;
 	void SetText(const std::string& text);

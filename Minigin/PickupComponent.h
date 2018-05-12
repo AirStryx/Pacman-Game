@@ -5,7 +5,7 @@ class PickupComponent : public BaseComponent
 {
 public:
 	PickupComponent();
-	virtual ~PickupComponent();
+	~PickupComponent();
 	void Update(const float deltaTime) override;
 	void Render() override;
 
