@@ -87,6 +87,9 @@
     <ClInclude Include="PickupComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="PickupLoadHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Minigin.cpp">
