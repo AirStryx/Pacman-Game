@@ -1,6 +1,7 @@
 #include "MiniginPCH.h"
 #include "PickupComponent.h"
 #include "TextureComponent.h"
+#include "ScoreComponent.h"
 
 
 PickupComponent::PickupComponent()
@@ -29,11 +30,17 @@ void PickupComponent::Update(const float deltaTime)
 
 		if (length < m_radius / 2 + pickupperRadius)
 		{
-			PickedUp();
+			PickedUp(go);
 		}
 	}
 }
 
 void PickupComponent::Render()
 {
+}
+
+void PickupComponent::PickedUp(std::weak_ptr<dae::GameObject> pickupper)
+{
+	std::static_pointer_cast<ScoreComponent>(pickupper.lock()->GetComponent(Types::SCORE))->incrementScore(m_deltaScore);
+	m_GO.lock()->Kill();
 }

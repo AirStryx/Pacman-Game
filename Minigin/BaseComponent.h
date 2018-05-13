@@ -5,7 +5,8 @@ enum class Types
 	RENDER,
 	TEXTURE,
 	TEXT,
-	PICKUP
+	PICKUP,
+	SCORE
 };
 class BaseComponent
 {

@@ -5,6 +5,7 @@
 #include "InputComponent.h"
 #include "RenderComponent.h"
 #include "TextureComponent.h"
+#include "TextComponent.h"
 
 dae::GameObject::~GameObject() = default;
 
@@ -43,6 +44,11 @@ void dae::GameObject::SetPosition(float x, float y)
 
 		texture->SetPosition(m_Position.x - w, m_Position.y + h);
 
+	}
+	std::shared_ptr<TextComponent> text = std::static_pointer_cast<TextComponent>(GetComponent(Types::TEXT));
+	if (text != nullptr)
+	{
+		text->SetPosition(m_Position.x, m_Position.y);
 	}
 
 }
