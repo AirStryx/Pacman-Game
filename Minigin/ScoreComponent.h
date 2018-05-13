@@ -11,12 +11,13 @@ public:
 	void Render() override;
 
 	void incrementScore(int deltaScore) { m_Score += deltaScore; m_ScoreChanged = true; }
-	void setDisplay(std::weak_ptr<dae::GameObject> displayGo) { m_DisplayGO = displayGo; m_origPosition = m_DisplayGO.lock()->GetPosition();	}
+	void setDisplay(std::weak_ptr<dae::GameObject> displayGo) { m_DisplayGO = displayGo; 
+	m_origPosition = m_DisplayGO.lock()->GetPosition();	}
 private:
 
 	int m_Score{ 0 };
 	bool m_ScoreChanged{ false };
 	std::weak_ptr<dae::GameObject> m_DisplayGO;
-	dae::Pos m_origPosition;
+	dae::Pos m_origPosition{ 0,0 };
 };
 

@@ -24,7 +24,7 @@ void ScoreComponent::Update(const float deltaTime)
 		std::string scoreS = std::to_string(m_Score);
 		if (scoreS.length() > 1)
 		{
-			m_DisplayGO.lock()->SetPosition(m_origPosition.x - (scoreS.length() * 10.f), m_origPosition.y);
+			m_DisplayGO.lock()->SetPosition(m_origPosition.x - (scoreS.length() * 6.f), m_origPosition.y);
 		}
 		std::static_pointer_cast<TextComponent>(m_DisplayGO.lock()->GetComponent(Types::TEXT))->SetText(scoreS);
 	}
