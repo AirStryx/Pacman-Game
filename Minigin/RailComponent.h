@@ -33,6 +33,6 @@ private:
 	bool CanMoveInDir(MoveDirection dir);
 
 	//DEBUG VAR PLEASE DONT GRADE THIS
-	std::shared_ptr<dae::Texture2D> mTexture;
+	//std::shared_ptr<dae::Texture2D> mTexture;
 };
 

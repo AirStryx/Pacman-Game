@@ -13,7 +13,7 @@ RailComponent::RailComponent()
 	m_AllowedDirection.push_back(MoveDirection::LEFT);
 
 	//DEBUG TESTING
-	mTexture = dae::ResourceManager::GetInstance().LoadTexture("../Data/PickUpSmall.png");
+	//mTexture = dae::ResourceManager::GetInstance().LoadTexture("../Data/PickUpSmall.png");
 }
 
 
@@ -126,13 +126,13 @@ void RailComponent::Update(const float deltaTime)
 void RailComponent::Render()
 {
 	//DEBUG RENDER PLEASE DONT GRADE THIS
-	for (auto cp : m_CornerPoints)
-	{
-		if (mTexture != nullptr)
-		{
-			dae::Renderer::GetInstance().RenderTexture(*mTexture,cp.pos.x, cp.pos.y);
-		}
-	}
+	//for (auto cp : m_CornerPoints)
+	//{
+	//	if (mTexture != nullptr)
+	//	{
+	//		dae::Renderer::GetInstance().RenderTexture(*mTexture,cp.pos.x, cp.pos.y);
+	//	}
+	//}
 	
 }
 
