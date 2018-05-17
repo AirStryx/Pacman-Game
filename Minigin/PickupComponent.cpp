@@ -21,13 +21,10 @@ void PickupComponent::Update(const float deltaTime)
 	{
 		dae::Pos myPos = m_GO.lock()->GetPosition();
 		dae::Pos pickupperPos = go.lock()->GetPosition();
-		float pickupperRadius = std::static_pointer_cast<TextureComponent>(go.lock()->GetComponent(Types::TEXTURE))->getWidth() / 2;
-
 		dae::Pos betweenVec{ myPos.x - pickupperPos.x, myPos.y - pickupperPos.y };
-
 		float length = sqrt(pow(betweenVec.x, 2) + pow(betweenVec.y, 2));
 
-
+		float pickupperRadius = std::static_pointer_cast<TextureComponent>(go.lock()->GetComponent(Types::TEXTURE))->getWidth() / 2;
 		if (length < m_radius / 2 + pickupperRadius)
 		{
 			PickedUp(go);

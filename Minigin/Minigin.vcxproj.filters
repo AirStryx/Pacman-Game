@@ -90,7 +90,13 @@
     <ClInclude Include="PickupLoadHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RailComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
     <ClInclude Include="ScoreComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Structs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -149,8 +155,11 @@
     <ClCompile Include="PickupComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="RailComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
     <ClCompile Include="ScoreComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

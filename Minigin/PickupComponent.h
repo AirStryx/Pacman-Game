@@ -9,7 +9,6 @@ public:
 	void Update(const float deltaTime) override;
 	void Render() override;
 
-	void setGO(std::shared_ptr<dae::GameObject> go) { m_GO = go; }
 	void SetRadius(float radius) { m_radius = radius; }
 	void AddPickupper(std::shared_ptr<dae::GameObject> go) { m_PickUppers.push_back(go); }
 	void SetScore(int score) { m_deltaScore = score; }
@@ -18,7 +17,6 @@ public:
 
 private:
 	std::vector<std::weak_ptr<dae::GameObject>> m_PickUppers;
-	std::weak_ptr<dae::GameObject> m_GO;
 	float m_radius{ 0.f };
 	int m_deltaScore{10};
 };

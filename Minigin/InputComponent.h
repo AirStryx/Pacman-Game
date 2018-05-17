@@ -15,16 +15,15 @@ class InputComponent : public BaseComponent
 		void Update(const float deltaTime) override;
 		void Render() override;
 		void SetCommand(dae::ControllerButton button, std::unique_ptr<Command>& com);
-		void SetGameObj(std::shared_ptr<dae::GameObject>& gameObj);
 		void SetMoveDirection(MoveDirection dir);
 		
 		void HandleInput();
 
-	private:
-		std::weak_ptr<dae::GameObject> m_GameObj;
+	protected:
 		std::unique_ptr<Command> DpadUp;
 		std::unique_ptr<Command> DpadDown;
 		std::unique_ptr<Command> DpadLeft;
 		std::unique_ptr<Command> DpadRight;
 		MoveDirection m_Direction{ MoveDirection::NONE };
+		
 	};

@@ -18,20 +18,20 @@ InputComponent::~InputComponent()
 void InputComponent::Update(const float deltaTime)
 {
 	HandleInput();
-	dae::Pos pos = m_GameObj.lock()->GetPosition();
+	dae::Pos pos = m_GO.lock()->GetPosition();
 	switch (m_Direction)
 	{
 	case MoveDirection::UP:
-		m_GameObj.lock()->SetPosition(pos.x, pos.y - (100 * deltaTime));
+		m_GO.lock()->SetPosition(pos.x, pos.y - (100 * deltaTime));
 		break;
 	case MoveDirection::DOWN:
-		m_GameObj.lock()->SetPosition(pos.x, pos.y + (100 * deltaTime));
+		m_GO.lock()->SetPosition(pos.x, pos.y + (100 * deltaTime));
 		break;
 	case MoveDirection::LEFT:
-		m_GameObj.lock()->SetPosition(pos.x - (100 * deltaTime), pos.y);
+		m_GO.lock()->SetPosition(pos.x - (100 * deltaTime), pos.y);
 		break;
 	case MoveDirection::RIGHT:
-		m_GameObj.lock()->SetPosition(pos.x + (100 * deltaTime), pos.y);
+		m_GO.lock()->SetPosition(pos.x + (100 * deltaTime), pos.y);
 		break;
 	case MoveDirection::NONE:
 		break;
@@ -63,31 +63,28 @@ void InputComponent::SetCommand(dae::ControllerButton button, std::unique_ptr<Co
 		break;
 	}
 }
-void InputComponent::SetGameObj(std::shared_ptr<dae::GameObject>& gameObj)
-{
-	m_GameObj = gameObj;
-}
 
 void InputComponent::HandleInput()
 {
 	auto& InputM = dae::InputManager::GetInstance();
 	if (InputM.IsPressed(dae::ControllerButton::DPADUP))
 	{
-		DpadUp->Execute();
+		DpadUp->ExecuteI();
 	}
 	else if (InputM.IsPressed(dae::ControllerButton::DPADDOWN))
 	{
-		DpadDown->Execute();
+		DpadDown->ExecuteI();
 	}
 	else if (InputM.IsPressed(dae::ControllerButton::DPADRIGHT))
 	{
-		DpadRight->Execute();
+		DpadRight->ExecuteI();
 	}
 	else if (InputM.IsPressed(dae::ControllerButton::DPADLEFT))
 	{
-		DpadLeft->Execute();
+		DpadLeft->ExecuteI();
 	}
 }
+
 void InputComponent::SetMoveDirection(MoveDirection dir)
 {
 	switch (dir)

@@ -1,5 +1,7 @@
 #pragma once
 #include "MiniginPCH.h"
+#include "RailComponent.h"
+
 
 void LoadPickups(dae::Scene& scene, std::shared_ptr<dae::GameObject> PacMan)
 {
@@ -12,7 +14,7 @@ void LoadPickups(dae::Scene& scene, std::shared_ptr<dae::GameObject> PacMan)
 		Go->AddComponent(Texture);
 		auto pickUp = std::make_shared<PickupComponent>();
 		pickUp->AddPickupper(PacMan);
-		pickUp->setGO(Go);
+		pickUp->SetGO(Go);
 		pickUp->SetRadius(24.f);
 
 		switch (i)
@@ -594,4 +596,26 @@ void LoadPickups(dae::Scene& scene, std::shared_ptr<dae::GameObject> PacMan)
 		Go->AddComponent(pickUp);
 		scene.Add(Go);
 	}
+}
+void LoadWalkingGrid(std::shared_ptr<RailComponent> comp)
+{
+	//possible directions
+	std::vector<MoveDirection> movU{ MoveDirection::UP};
+	std::vector<MoveDirection> movD{MoveDirection::DOWN};
+	std::vector<MoveDirection> movR{MoveDirection::RIGHT };
+	std::vector<MoveDirection> movL{ MoveDirection::LEFT};
+	std::vector<MoveDirection> movUDLR{ MoveDirection::UP, MoveDirection::DOWN, MoveDirection::LEFT, MoveDirection::RIGHT };
+
+	//actual points
+	CornerPoint p1;
+	p1.pos.x = 144.f;
+	p1.pos.y = 363.f;
+	p1.m_AllowedDirections = movU;
+	comp->AddCornerPoint(p1);
+
+	CornerPoint p2;
+	p2.pos.x = 144.f;
+	p2.pos.y = 55.f;
+	p2.m_AllowedDirections = movD;
+	comp->AddCornerPoint(p2);
 }
