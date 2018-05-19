@@ -1,6 +1,7 @@
 #pragma once
 #include "MiniginPCH.h"
 #include "RailComponent.h"
+#include "MoveRailComponent.h"
 
 
 void LoadPickups(dae::Scene& scene, std::shared_ptr<dae::GameObject> PacMan)
@@ -958,3 +959,365 @@ void LoadWalkingGrid(std::shared_ptr<RailComponent> comp)
 		comp->AddCornerPoint(p);
 	}
 }
+void LoadEnemyWalkingGrid(std::shared_ptr<MoveRailComponent> comp)
+{
+	//possible directions
+	std::vector<MoveDirection> movU{ MoveDirection::UP };
+	std::vector<MoveDirection> movD{ MoveDirection::DOWN };
+	std::vector<MoveDirection> movR{ MoveDirection::RIGHT };
+	std::vector<MoveDirection> movL{ MoveDirection::LEFT };
+	std::vector<MoveDirection> movDL{ MoveDirection::DOWN, MoveDirection::LEFT };
+	std::vector<MoveDirection> movUR{ MoveDirection::UP, MoveDirection::RIGHT };
+	std::vector<MoveDirection> movUL{ MoveDirection::UP, MoveDirection::LEFT };
+	std::vector<MoveDirection> movDR{ MoveDirection::DOWN, MoveDirection::RIGHT };
+	std::vector<MoveDirection> movDLR{ MoveDirection::DOWN, MoveDirection::LEFT, MoveDirection::RIGHT };
+	std::vector<MoveDirection> movULR{ MoveDirection::UP, MoveDirection::LEFT, MoveDirection::RIGHT };
+	std::vector<MoveDirection> movUDR{ MoveDirection::UP, MoveDirection::DOWN, MoveDirection::RIGHT };
+	std::vector<MoveDirection> movUDL{ MoveDirection::UP, MoveDirection::DOWN, MoveDirection::LEFT };
+	std::vector<MoveDirection> movUDLR{ MoveDirection::UP, MoveDirection::DOWN, MoveDirection::LEFT, MoveDirection::RIGHT };
+
+	//actual points
+	for (int i = 0; i < 76; i++)
+	{
+		CornerPoint p;
+		switch (i)
+		{
+		case 0:
+			p.pos.x = 150.f;
+			p.pos.y = 363.f;
+			p.m_AllowedDirections = movUDLR;
+			break;
+		case 1:
+			p.pos.x = 150.f;
+			p.pos.y = 55.f;
+			p.m_AllowedDirections = movDLR;
+			break;
+		case 2:
+			p.pos.x = 30.f;
+			p.pos.y = 55.f;
+			p.m_AllowedDirections = movDR;
+			break;
+		case 3:
+			p.pos.x = 293.f;
+			p.pos.y = 55.f;
+			p.m_AllowedDirections = movDL;
+			break;
+		case 4:
+			p.pos.x = 293.f;
+			p.pos.y = 150.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 5:
+			p.pos.x = 150.f;
+			p.pos.y = 150.f;
+			p.m_AllowedDirections = movUDLR;
+			break;
+		case 6:
+			p.pos.x = 30.f;
+			p.pos.y = 150.f;
+			p.m_AllowedDirections = movUDR;
+			break;
+		case 7:
+			p.pos.x = 150.f;
+			p.pos.y = 225.f;
+			p.m_AllowedDirections = movUDL;
+			break;
+		case 8:
+			p.pos.x = 30.f;
+			p.pos.y = 225.f;
+			p.m_AllowedDirections = movUR;
+			break;
+		case 9:
+			p.pos.x = 20.f;
+			p.pos.y = 363.f;
+			p.m_AllowedDirections = movR;
+			break;
+		case 10:
+			p.pos.x = 220.f;
+			p.pos.y = 150.f;
+			p.m_AllowedDirections = movDLR;
+			break;
+		case 11:
+			p.pos.x = 220.f;
+			p.pos.y = 363.f;
+			p.m_AllowedDirections = movUDL;
+			break;
+		case 12:
+			p.pos.x = 220.f;
+			p.pos.y = 225.f;
+			p.m_AllowedDirections = movUR;
+			break;
+		case 13:
+			p.pos.x = 293.f;
+			p.pos.y = 215.f;
+			p.m_AllowedDirections = movDL;
+			break;
+		case 14:
+			p.pos.x = 293.f;
+			p.pos.y = 295.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 15:
+			p.pos.x = 220.f;
+			p.pos.y = 285.f;
+			p.m_AllowedDirections = movDR;
+			break;
+		case 16:
+			p.pos.x = 150.f;
+			p.pos.y = 573.f;
+			p.m_AllowedDirections = movUDR;
+			break;
+		case 17:
+			p.pos.x = 150.f;
+			p.pos.y = 503.f;
+			p.m_AllowedDirections = movUDLR;
+			break;
+		case 18:
+			p.pos.x = 30.f;
+			p.pos.y = 503.f;
+			p.m_AllowedDirections = movDR;
+			break;
+		case 19:
+			p.pos.x = 30.f;
+			p.pos.y = 573.f;
+			p.m_AllowedDirections = movUR;
+			break;
+		case 20:
+			p.pos.x = 90.f;
+			p.pos.y = 573.f;
+			p.m_AllowedDirections = movDL;
+			break;
+		case 21:
+			p.pos.x = 90.f;
+			p.pos.y = 648.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 22:
+			p.pos.x = 30.f;
+			p.pos.y = 641.f;
+			p.m_AllowedDirections = movDR;
+			break;
+		case 23:
+			p.pos.x = 30.f;
+			p.pos.y = 718.f;
+			p.m_AllowedDirections = movUR;
+			break;
+		case 24:
+			p.pos.x = 293.f;
+			p.pos.y = 718.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 25:
+			p.pos.x = 150.f;
+			p.pos.y = 648.f;
+			p.m_AllowedDirections = movUL;
+			break;
+		case 26:
+			p.pos.x = 293.f;
+			p.pos.y = 630.f;
+			p.m_AllowedDirections = movDL;
+			break;
+		case 27:
+			p.pos.x = 220.f;
+			p.pos.y = 640.f;
+			p.m_AllowedDirections = movUR;
+			break;
+		case 28:
+			p.pos.x = 220.f;
+			p.pos.y = 573.f;
+			p.m_AllowedDirections = movDLR;
+			break;
+		case 29:
+			p.pos.x = 293.f;
+			p.pos.y = 574.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 30:
+			p.pos.x = 293.f;
+			p.pos.y = 503.f;
+			p.m_AllowedDirections = movDL;
+			break;
+		case 31:
+			p.pos.x = 220.f;
+			p.pos.y = 503.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 32:
+			p.pos.x = 220.f;
+			p.pos.y = 440.f;
+			p.m_AllowedDirections = movUDR;
+			break;
+		case 33:
+			p.pos.x = 360.f;
+			p.pos.y = 718.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 34:
+			p.pos.x = 360.f;
+			p.pos.y = 640.f;
+			p.m_AllowedDirections = movDR;
+			break;
+		case 35:
+			p.pos.x = 430.f;
+			p.pos.y = 640.f;
+			p.m_AllowedDirections = movUL;
+			break;
+		case 36:
+			p.pos.x = 625.f;
+			p.pos.y = 714.f;
+			p.m_AllowedDirections = movUL;
+			break;
+		case 37:
+			p.pos.x = 625.f;
+			p.pos.y = 640.f;
+			p.m_AllowedDirections = movDL;
+			break;
+		case 38:
+			p.pos.x = 560.f;
+			p.pos.y = 640.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 39:
+			p.pos.x = 500.f;
+			p.pos.y = 640.f;
+			p.m_AllowedDirections = movUR;
+			break;
+		case 40:
+			p.pos.x = 505.f;
+			p.pos.y = 570.f;
+			p.m_AllowedDirections = movUDL;
+			break;
+		case 41:
+
+			p.pos.x = 430.f;
+			p.pos.y = 570.f;
+			p.m_AllowedDirections = movDLR;
+			break;
+		case 42:
+			p.pos.x = 360.f;
+			p.pos.y = 570.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 43:
+			p.pos.x = 560.f;
+			p.pos.y = 565.f;
+			p.m_AllowedDirections = movDR;
+			break;
+		case 44:
+			p.pos.x = 625.f;
+			p.pos.y = 568.f;
+			p.m_AllowedDirections = movUL;
+			break;
+		case 45:
+			p.pos.x = 360.f;
+			p.pos.y = 495.f;
+			p.m_AllowedDirections = movDR;
+			break;
+		case 46:
+			p.pos.x = 625.f;
+			p.pos.y = 498.f;
+			p.m_AllowedDirections = movDL;
+			break;
+		case 47:
+			p.pos.x = 505.f;
+			p.pos.y = 498.f;
+			p.m_AllowedDirections = movUDLR;
+			break;
+		case 48:
+			p.pos.x = 430.f;
+			p.pos.y = 503.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 49:
+			p.pos.x = 430.f;
+			p.pos.y = 440.f;
+			p.m_AllowedDirections = movUDL;
+			break;
+		case 50:
+			p.pos.x = 430.f;
+			p.pos.y = 363.f;
+			p.m_AllowedDirections = movUDR;
+			break;
+		case 51:
+			p.pos.x = 625.f;
+			p.pos.y = 363.f;
+			p.m_AllowedDirections = movL;
+			break;
+		case 52:
+			p.pos.x = 505.f;
+			p.pos.y = 363.f;
+			p.m_AllowedDirections = movUDLR;
+			break;
+		case 53:
+			p.pos.x = 434.f;
+			p.pos.y = 290.f;
+			p.m_AllowedDirections = movDL;
+			break;
+		case 54:
+			p.pos.x = 360.f;
+			p.pos.y = 294.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 55:
+			p.pos.x = 360.f;
+			p.pos.y = 220.f;
+			p.m_AllowedDirections = movDR;
+			break;
+		case 56:
+			p.pos.x = 434.f;
+			p.pos.y = 223.f;
+			p.m_AllowedDirections = movUL;
+			break;
+		case 57:
+			p.pos.x = 500.f;
+			p.pos.y = 223.f;
+			p.m_AllowedDirections = movUDR;
+			break;
+		case 58:
+			p.pos.x = 625.f;
+			p.pos.y = 223.f;
+			p.m_AllowedDirections = movUL;
+			break;
+		case 59:
+			p.pos.x = 625.f;
+			p.pos.y = 150.f;
+			p.m_AllowedDirections = movUDL;
+			break;
+		case 60:
+			p.pos.x = 625.f;
+			p.pos.y = 55.f;
+			p.m_AllowedDirections = movDL;
+			break;
+		case 61:
+			p.pos.x = 500.f;
+			p.pos.y = 55.f;
+			p.m_AllowedDirections = movDLR;
+			break;
+		case 62:
+			p.pos.x = 500.f;
+			p.pos.y = 150.f;
+			p.m_AllowedDirections = movUDLR;
+			break;
+		case 63:
+			p.pos.x = 434.f;
+			p.pos.y = 150.f;
+			p.m_AllowedDirections = movDLR;
+			break;
+		case 64:
+			p.pos.x = 360.f;
+			p.pos.y = 150.f;
+			p.m_AllowedDirections = movULR;
+			break;
+		case 65:
+			p.pos.x = 360.f;
+			p.pos.y = 55.f;
+			p.m_AllowedDirections = movDR;
+			break;
+		default:
+			break;
+		}
+
+		comp->AddCornerPoint(p);
+	}
+}
+

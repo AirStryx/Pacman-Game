@@ -2,10 +2,8 @@
 #include "BaseComponent.h"
 #include "InputManager.h"
 #include "GameObject.h"
-enum class MoveDirection
-{
-	UP, DOWN, LEFT, RIGHT, NONE
-};
+#include "Structs.h"
+
 class Command;
 class InputComponent : public BaseComponent
 	{

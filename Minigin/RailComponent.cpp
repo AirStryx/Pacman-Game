@@ -23,7 +23,6 @@ RailComponent::~RailComponent()
 
 void RailComponent::Update(const float deltaTime)
 {
-	UNREFERENCED_PARAMETER(deltaTime);
 	//remember the last check of cp
 	bool LastRun = m_InRangeOfCP;
 	//reset range
@@ -31,10 +30,10 @@ void RailComponent::Update(const float deltaTime)
 	//Check if it is In range
 	for (auto cp : m_CornerPoints)
 	{
-		dae::Pos goPos = m_GO.lock()->GetPosition();
-		dae::Pos cpPos = cp.pos;
+		Pos goPos = m_GO.lock()->GetPosition();
+		Pos cpPos = cp.pos;
 
-		dae::Pos inBetween{ goPos.x - cpPos.x, goPos.y - cpPos.y };
+		Pos inBetween{ goPos.x - cpPos.x, goPos.y - cpPos.y };
 		float length = sqrt(pow(inBetween.x, 2) + pow(inBetween.y, 2));
 
 		float goRadius = std::static_pointer_cast<TextureComponent>(m_GO.lock()->GetComponent(Types::TEXTURE))->getWidth() / 2;
@@ -99,7 +98,7 @@ void RailComponent::Update(const float deltaTime)
 
 	//movement code
 	HandleInput();
-	dae::Pos pos = m_GO.lock()->GetPosition();
+	Pos pos = m_GO.lock()->GetPosition();
 	switch (m_Direction)
 	{
 	case MoveDirection::UP:
@@ -136,7 +135,7 @@ void RailComponent::Render()
 	
 }
 
-void RailComponent::AddCornerPoint(dae::Pos point, const std::vector<MoveDirection>& moveDirs)
+void RailComponent::AddCornerPoint(Pos point, const std::vector<MoveDirection>& moveDirs)
 {
 	CornerPoint cp;
 	cp.pos = point;

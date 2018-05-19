@@ -23,6 +23,7 @@ void dae::GameObject::Update(const float deltaTime)
 
 void dae::GameObject::Render() const
 {
+
 	if (m_IsAlive)
 	{
 		for (int i = 0; i < m_Components.size(); i++)

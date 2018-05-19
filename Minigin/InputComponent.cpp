@@ -18,7 +18,7 @@ InputComponent::~InputComponent()
 void InputComponent::Update(const float deltaTime)
 {
 	HandleInput();
-	dae::Pos pos = m_GO.lock()->GetPosition();
+	Pos pos = m_GO.lock()->GetPosition();
 	switch (m_Direction)
 	{
 	case MoveDirection::UP:

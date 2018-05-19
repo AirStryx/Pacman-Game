@@ -19,9 +19,9 @@ void PickupComponent::Update(const float deltaTime)
 	UNREFERENCED_PARAMETER(deltaTime);
 	for (auto go : m_PickUppers)
 	{
-		dae::Pos myPos = m_GO.lock()->GetPosition();
-		dae::Pos pickupperPos = go.lock()->GetPosition();
-		dae::Pos betweenVec{ myPos.x - pickupperPos.x, myPos.y - pickupperPos.y };
+		Pos myPos = m_GO.lock()->GetPosition();
+		Pos pickupperPos = go.lock()->GetPosition();
+		Pos betweenVec{ myPos.x - pickupperPos.x, myPos.y - pickupperPos.y };
 		float length = sqrt(pow(betweenVec.x, 2) + pow(betweenVec.y, 2));
 
 		float pickupperRadius = std::static_pointer_cast<TextureComponent>(go.lock()->GetComponent(Types::TEXTURE))->getWidth() / 2;

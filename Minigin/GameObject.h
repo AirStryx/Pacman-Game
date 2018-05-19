@@ -8,10 +8,6 @@
 
 namespace dae
 {
-	struct Pos
-	{
-		float x, y;
-	};
 	class GameObject
 	{
 	public:

@@ -18,6 +18,6 @@ private:
 	int m_Score{ 0 };
 	bool m_ScoreChanged{ false };
 	std::weak_ptr<dae::GameObject> m_DisplayGO;
-	dae::Pos m_origPosition{ 0,0 };
+	Pos m_origPosition{ 0,0 };
 };
 

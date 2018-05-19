@@ -199,6 +199,8 @@ xcopy $(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll $(OutputPath) /R /Y</Command
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="MiniginPCH.h" />
+    <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="MoveRailComponent.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="PickupComponent.h" />
     <ClInclude Include="PickupLoadHelper.h" />
@@ -233,6 +235,8 @@ xcopy $(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll $(OutputPath) /R /Y</Command
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MiniginPCH.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="MoveRailComponent.cpp" />
     <ClCompile Include="PickupComponent.cpp" />
     <ClCompile Include="RailComponent.cpp" />
     <ClCompile Include="RenderComponent.cpp" />

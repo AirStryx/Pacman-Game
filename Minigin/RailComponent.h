@@ -2,11 +2,7 @@
 #include "BaseComponent.h"
 #include "GameObject.h"
 #include "InputComponent.h"
-struct CornerPoint
-{
-	dae::Pos pos;
-	std::vector<MoveDirection> m_AllowedDirections;
-};
+#include "Structs.h"
 class RailComponent : public InputComponent
 {
 public:
@@ -20,7 +16,7 @@ public:
 
 	//setter functions
 	void SetAllowedDirections(const std::vector<MoveDirection>& dirs) { m_AllowedDirection = dirs; }
-	void AddCornerPoint(dae::Pos point, const std::vector<MoveDirection>& moveDirs);
+	void AddCornerPoint(Pos point, const std::vector<MoveDirection>& moveDirs);
 	void AddCornerPoint(CornerPoint cp);
 	void SetRadius(float r) { m_Radius = r; }
 private:

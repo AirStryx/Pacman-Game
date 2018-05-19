@@ -1,18 +1,10 @@
 #pragma once
+#include "Structs.h"
 namespace dae
 {
 	class GameObject;
 }
-enum class Types
-{
-	INPUT,
-	RENDER,
-	TEXTURE,
-	TEXT,
-	PICKUP,
-	SCORE,
-	RAIL
-};
+
 class BaseComponent
 {
 public:
