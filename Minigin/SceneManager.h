@@ -16,6 +16,7 @@ namespace dae
 		int FindScene(std::string Name);
 		void ResetGame();
 		void IsReset() { wantReset = false; }
+		void ClearScenes() { mScenes.clear(); }
 
 		bool WantReset() { return wantReset; }
 	private:

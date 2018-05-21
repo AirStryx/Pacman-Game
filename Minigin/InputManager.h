@@ -10,6 +10,7 @@ namespace dae
 	{
 	public:
 		bool ProcessInput(int controller);
+		bool CheckForQuit();
 		bool IsPressed(ControllerButton button) const;
 	private:
 		XINPUT_STATE currentState{};

@@ -39,7 +39,6 @@ int dae::SceneManager::FindScene(std::string Name)
 void dae::SceneManager::ResetGame()
 {
 	wantReset = true;
-	mScenes.clear();
 }
 
 dae::Scene& dae::SceneManager::CreateScene(const std::string& name)

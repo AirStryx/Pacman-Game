@@ -8,6 +8,11 @@ bool dae::InputManager::ProcessInput(int controller)
 {
 	ZeroMemory(&currentState, sizeof(XINPUT_STATE));
 	XInputGetState(controller, &currentState);
+	return true;
+}
+
+bool dae::InputManager::CheckForQuit()
+{
 
 	SDL_Event e;
 	while (SDL_PollEvent(&e)) {
@@ -15,10 +20,10 @@ bool dae::InputManager::ProcessInput(int controller)
 			return false;
 		}
 		if (e.type == SDL_KEYDOWN) {
-			
+
 		}
 		if (e.type == SDL_MOUSEBUTTONDOWN) {
-			
+
 		}
 	}
 
