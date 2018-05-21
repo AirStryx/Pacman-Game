@@ -100,9 +100,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MoveComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="MoveRailComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCollision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LivesComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -167,10 +176,19 @@
     <ClCompile Include="ScoreComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="MoveRailComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
     <ClCompile Include="MoveComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MoveRailComponent.cpp">
+    <ClCompile Include="LivesComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

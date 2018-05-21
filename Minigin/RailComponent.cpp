@@ -97,6 +97,7 @@ void RailComponent::Update(const float deltaTime)
 	}
 
 	//movement code
+	dae::InputManager::GetInstance().ProcessInput(ControllerID);
 	HandleInput();
 	Pos pos = m_GO.lock()->GetPosition();
 	switch (m_Direction)
@@ -162,19 +163,19 @@ bool RailComponent::CanMoveInDir(MoveDirection dir)
 void RailComponent::HandleInput()
 {
 	auto& InputM = dae::InputManager::GetInstance();
-	if (InputM.IsPressed(dae::ControllerButton::DPADUP) && CanMoveInDir(MoveDirection::UP))
+	if (InputM.IsPressed(ControllerButton::DPADUP) && CanMoveInDir(MoveDirection::UP))
 	{
 		DpadUp->ExecuteR();
 	}
-	else if (InputM.IsPressed(dae::ControllerButton::DPADDOWN) && CanMoveInDir(MoveDirection::DOWN))
+	else if (InputM.IsPressed(ControllerButton::DPADDOWN) && CanMoveInDir(MoveDirection::DOWN))
 	{
 		DpadDown->ExecuteR();
 	}
-	else if (InputM.IsPressed(dae::ControllerButton::DPADRIGHT) && CanMoveInDir(MoveDirection::RIGHT))
+	else if (InputM.IsPressed(ControllerButton::DPADRIGHT) && CanMoveInDir(MoveDirection::RIGHT))
 	{
 		DpadRight->ExecuteR();
 	}
-	else if (InputM.IsPressed(dae::ControllerButton::DPADLEFT) && CanMoveInDir(MoveDirection::LEFT))
+	else if (InputM.IsPressed(ControllerButton::DPADLEFT) && CanMoveInDir(MoveDirection::LEFT))
 	{
 		DpadLeft->ExecuteR();
 	}

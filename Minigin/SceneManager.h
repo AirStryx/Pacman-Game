@@ -11,9 +11,17 @@ namespace dae
 
 		void Update(const float deltaTime);
 		void Render();
+		void SetActive(int idx);
 
+		int FindScene(std::string Name);
+		void ResetGame();
+		void IsReset() { wantReset = false; }
+
+		bool WantReset() { return wantReset; }
 	private:
 		std::vector<std::shared_ptr<Scene>> mScenes;
+		bool wantReset{ false };
+		int mActiveSceneIdx;
 	};
 
 }

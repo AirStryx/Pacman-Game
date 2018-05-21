@@ -15,6 +15,9 @@ namespace dae
 		void Render() const;
 
 		void SetPosition(float x, float y);
+		void setStartPos(Pos position) { m_StartPos = position; }
+		void ResetPos() { SetPosition(m_StartPos.x, m_StartPos.y); }
+
 		Pos GetPosition() { return m_Position; };
 		void AddComponent(std::shared_ptr<BaseComponent> comp);
 		std::shared_ptr<BaseComponent> GetComponent(Types type);
@@ -33,5 +36,6 @@ namespace dae
 		std::shared_ptr<Texture2D> mTexture;
 		std::vector<std::shared_ptr<BaseComponent>> m_Components;
 		Pos m_Position{ 0,0 };
+		Pos m_StartPos;
 	};
 }

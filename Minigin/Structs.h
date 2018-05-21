@@ -7,11 +7,27 @@ enum class Types
 	TEXT,
 	PICKUP,
 	SCORE,
-	MOVE
+	MOVE,
+	MENU,
+	PLAYERCOL,
+	LIFE
+};
+enum class CharacterTypes
+{
+	Pacman,
+	Ghost
 };
 enum class MoveDirection
 {
 	UP, DOWN, LEFT, RIGHT, NONE
+};
+enum class ControllerButton
+{
+	DPADUP,
+	DPADDOWN,
+	DPADLEFT,
+	DPADRIGHT,
+	A
 };
 struct Pos
 {

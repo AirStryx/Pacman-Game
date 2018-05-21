@@ -17,6 +17,7 @@ InputComponent::~InputComponent()
 
 void InputComponent::Update(const float deltaTime)
 {
+	dae::InputManager::GetInstance().ProcessInput(ControllerID);
 	HandleInput();
 	Pos pos = m_GO.lock()->GetPosition();
 	switch (m_Direction)
@@ -43,20 +44,20 @@ void InputComponent::Update(const float deltaTime)
 void InputComponent::Render()
 {
 }
-void InputComponent::SetCommand(dae::ControllerButton button, std::unique_ptr<Command>& com)
+void InputComponent::SetCommand(ControllerButton button, std::unique_ptr<Command>& com)
 {
 	switch (button)
 	{
-	case dae::ControllerButton::DPADUP:
+	case ControllerButton::DPADUP:
 		DpadUp = std::move(com);
 		break;
-	case dae::ControllerButton::DPADDOWN:
+	case ControllerButton::DPADDOWN:
 		DpadDown = std::move(com);
 		break;
-	case dae::ControllerButton::DPADLEFT:
+	case ControllerButton::DPADLEFT:
 		DpadLeft = std::move(com);
 		break;
-	case dae::ControllerButton::DPADRIGHT:
+	case ControllerButton::DPADRIGHT:
 		DpadRight = std::move(com);
 		break;
 	default:
@@ -67,19 +68,19 @@ void InputComponent::SetCommand(dae::ControllerButton button, std::unique_ptr<Co
 void InputComponent::HandleInput()
 {
 	auto& InputM = dae::InputManager::GetInstance();
-	if (InputM.IsPressed(dae::ControllerButton::DPADUP))
+	if (InputM.IsPressed(ControllerButton::DPADUP))
 	{
 		DpadUp->ExecuteI();
 	}
-	else if (InputM.IsPressed(dae::ControllerButton::DPADDOWN))
+	else if (InputM.IsPressed(ControllerButton::DPADDOWN))
 	{
 		DpadDown->ExecuteI();
 	}
-	else if (InputM.IsPressed(dae::ControllerButton::DPADRIGHT))
+	else if (InputM.IsPressed(ControllerButton::DPADRIGHT))
 	{
 		DpadRight->ExecuteI();
 	}
-	else if (InputM.IsPressed(dae::ControllerButton::DPADLEFT))
+	else if (InputM.IsPressed(ControllerButton::DPADLEFT))
 	{
 		DpadLeft->ExecuteI();
 	}

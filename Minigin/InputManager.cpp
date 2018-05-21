@@ -1,12 +1,13 @@
 #include "MiniginPCH.h"
 #include "InputManager.h"
+#include "Structs.h"
 #include <SDL.h>
 
 
-bool dae::InputManager::ProcessInput()
+bool dae::InputManager::ProcessInput(int controller)
 {
 	ZeroMemory(&currentState, sizeof(XINPUT_STATE));
-	XInputGetState(0, &currentState);
+	XInputGetState(controller, &currentState);
 
 	SDL_Event e;
 	while (SDL_PollEvent(&e)) {
@@ -36,6 +37,8 @@ bool dae::InputManager::IsPressed(ControllerButton button) const
 		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT;
 	case ControllerButton::DPADRIGHT:
 		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT;
+	case ControllerButton::A:
+		return currentState.Gamepad.wButtons & XINPUT_GAMEPAD_A;
 	default: return false;
 	}
 }
