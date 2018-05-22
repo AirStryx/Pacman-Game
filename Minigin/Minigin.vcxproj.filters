@@ -109,10 +109,10 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="PlayerCollision.h">
-      <Filter>Header Files</Filter>
+      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="LivesComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -186,10 +186,10 @@
       <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="PlayerCollision.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="LivesComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

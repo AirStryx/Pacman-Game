@@ -15,7 +15,10 @@ enum class Types
 enum class CharacterTypes
 {
 	Pacman,
-	Ghost
+	RedGhost,
+	BlueGhost,
+	YellowGhost,
+	PinkGhost
 };
 enum class MoveDirection
 {

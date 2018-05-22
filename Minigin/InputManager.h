@@ -14,6 +14,11 @@ namespace dae
 		bool IsPressed(ControllerButton button) const;
 	private:
 		XINPUT_STATE currentState{};
+		bool up{ false };
+		bool down{ false };
+		bool left{ false };
+		bool right{ false };
+		bool enter{ false };
 	};
 
 }

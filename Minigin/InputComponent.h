@@ -3,6 +3,7 @@
 #include "InputManager.h"
 #include "GameObject.h"
 #include "Structs.h"
+#include "SDL_scancode.h"
 
 class Command;
 class InputComponent : public BaseComponent

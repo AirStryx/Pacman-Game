@@ -64,7 +64,6 @@ void InputComponent::SetCommand(ControllerButton button, std::unique_ptr<Command
 		break;
 	}
 }
-
 void InputComponent::HandleInput()
 {
 	auto& InputM = dae::InputManager::GetInstance();

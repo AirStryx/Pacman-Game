@@ -2,6 +2,7 @@
 #include "PickupComponent.h"
 #include "TextureComponent.h"
 #include "ScoreComponent.h"
+#include "PlayerCollision.h"
 
 
 PickupComponent::PickupComponent()
@@ -39,5 +40,9 @@ void PickupComponent::Render()
 void PickupComponent::PickedUp(std::weak_ptr<dae::GameObject> pickupper)
 {
 	std::static_pointer_cast<ScoreComponent>(pickupper.lock()->GetComponent(Types::SCORE))->incrementScore(m_deltaScore);
+	if (m_IsBig)
+	{
+		std::static_pointer_cast<PlayerCollisionComponent>(pickupper.lock()->GetComponent(Types::PLAYERCOL))->MakeStrong();
+	}
 	m_GO.lock()->Kill();
 }

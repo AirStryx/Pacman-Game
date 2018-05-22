@@ -74,6 +74,8 @@ void LoadPickups(dae::Scene& scene, std::vector<std::shared_ptr<dae::GameObject>
 			break;
 			//second row
 		case 16:
+			Texture->SetTexture("PickUpBig.png");
+			pickUp->setBig(true);
 			Go->SetPosition(36.f, 103.f);
 			break;
 		case 17:
@@ -89,6 +91,8 @@ void LoadPickups(dae::Scene& scene, std::vector<std::shared_ptr<dae::GameObject>
 			Go->SetPosition(504.f, 103.f);
 			break;
 		case 21:
+			Texture->SetTexture("PickUpBig.png");
+			pickUp->setBig(true);
 			Go->SetPosition(612.f, 103.f);
 			break;
 			//third row
@@ -421,6 +425,8 @@ void LoadPickups(dae::Scene& scene, std::vector<std::shared_ptr<dae::GameObject>
 			break;
 			//sixteenth row
 		case 131:
+			Texture->SetTexture("PickUpBig.png");
+			pickUp->setBig(true);
 			Go->SetPosition(36.f, 578.f);
 			break;
 		case 132:
@@ -463,6 +469,8 @@ void LoadPickups(dae::Scene& scene, std::vector<std::shared_ptr<dae::GameObject>
 			Go->SetPosition(612.f, 578.f);
 			break;
 		case 28:
+			Texture->SetTexture("PickUpBig.png");
+			pickUp->setBig(true);
 			Go->SetPosition(324.f, 578.f);
 			break;
 			//seventeenth row
@@ -668,6 +676,8 @@ void LoadPickups(dae::Scene& scene, std::shared_ptr<dae::GameObject> Pickupper)
 			break;
 			//second row
 		case 16:
+			Texture->SetTexture("PickUpBig.png");
+			pickUp->setBig(true);
 			Go->SetPosition(36.f, 103.f);
 			break;
 		case 17:
@@ -683,6 +693,8 @@ void LoadPickups(dae::Scene& scene, std::shared_ptr<dae::GameObject> Pickupper)
 			Go->SetPosition(504.f, 103.f);
 			break;
 		case 21:
+			Texture->SetTexture("PickUpBig.png");
+			pickUp->setBig(true);
 			Go->SetPosition(612.f, 103.f);
 			break;
 			//third row
@@ -1015,6 +1027,8 @@ void LoadPickups(dae::Scene& scene, std::shared_ptr<dae::GameObject> Pickupper)
 			break;
 			//sixteenth row
 		case 131:
+			Texture->SetTexture("PickUpBig.png");
+			pickUp->setBig(true);
 			Go->SetPosition(36.f, 578.f);
 			break;
 		case 132:
@@ -1057,6 +1071,8 @@ void LoadPickups(dae::Scene& scene, std::shared_ptr<dae::GameObject> Pickupper)
 			Go->SetPosition(612.f, 578.f);
 			break;
 		case 28:
+			Texture->SetTexture("PickUpBig.png");
+			pickUp->setBig(true);
 			Go->SetPosition(324.f, 578.f);
 			break;
 			//seventeenth row
