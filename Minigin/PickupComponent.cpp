@@ -1,4 +1,6 @@
 #include "MiniginPCH.h"
+#include "SceneManager.h"
+#include "Scene.h"
 #include "PickupComponent.h"
 #include "TextureComponent.h"
 #include "ScoreComponent.h"
@@ -44,5 +46,6 @@ void PickupComponent::PickedUp(std::weak_ptr<dae::GameObject> pickupper)
 	{
 		std::static_pointer_cast<PlayerCollisionComponent>(pickupper.lock()->GetComponent(Types::PLAYERCOL))->MakeStrong();
 	}
+	dae::SceneManager::GetInstance().GetActiveScene().lock()->DecrementPickups();
 	m_GO.lock()->Kill();
 }

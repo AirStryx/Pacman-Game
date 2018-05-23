@@ -12,6 +12,8 @@ namespace dae
 
 		void Update(const float deltaTime);
 		void Render() const;
+		void SetAmountPickups(int amount) { m_PickUps = amount; }
+		void DecrementPickups() { --m_PickUps; }
 
 		std::string GetName() { return mName; }
 
@@ -26,6 +28,7 @@ namespace dae
 
 		std::string mName{};
 		std::vector < std::shared_ptr<GameObject>> mObjects{};
+		int m_PickUps{ -1 };
 
 		static unsigned int idCounter; 
 	};

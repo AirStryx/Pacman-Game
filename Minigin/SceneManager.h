@@ -13,6 +13,7 @@ namespace dae
 		void Render();
 		void SetActive(int idx);
 
+		std::weak_ptr<Scene> GetActiveScene() { return mScenes.at(mActiveSceneIdx); }
 		int FindScene(std::string Name);
 		void ResetGame();
 		void IsReset() { wantReset = false; }

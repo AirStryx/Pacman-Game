@@ -19,6 +19,13 @@ void dae::Scene::Update(const float deltaTime)
 	{
 		gameObject->Update(deltaTime);
 	}
+	if (m_PickUps != -1)
+	{
+		if (m_PickUps == 0)
+		{
+			dae::SceneManager::GetInstance().ResetGame();
+		}
+	}	
 }
 
 void dae::Scene::Render() const

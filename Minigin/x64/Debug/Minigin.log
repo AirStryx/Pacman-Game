@@ -1,6 +1,30 @@
-﻿  Minigin.cpp
+﻿  MiniginPCH.cpp
+  BaseComponent.cpp
+  Font.cpp
+  GameObject.cpp
+  InputComponent.cpp
+  InputManager.cpp
+  LivesComponent.cpp
+  Log.cpp
+  MenuComponent.cpp
+  Minigin.cpp
+  MoveComponent.cpp
+  MoveRailComponent.cpp
   PickupComponent.cpp
   PlayerCollision.cpp
+  RailComponent.cpp
+  RenderComponent.cpp
+  Renderer.cpp
+  ResourceManager.cpp
+  Scene.cpp
+  SceneManager.cpp
+  ScoreComponent.cpp
+  Generating Code...
+  Compiling...
+  TextComponent.cpp
+  Texture2D.cpp
+  TextureComponent.cpp
+  Transform.cpp
   Generating Code...
      Creating library F:\school\Programming_4\Exam_Assignment\Pacman-Game\x64\Debug\Minigin.lib and object F:\school\Programming_4\Exam_Assignment\Pacman-Game\x64\Debug\Minigin.exp
   Minigin.vcxproj -> F:\school\Programming_4\Exam_Assignment\Pacman-Game\x64\Debug\Minigin.exe
