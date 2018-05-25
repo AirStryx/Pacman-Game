@@ -11,7 +11,6 @@ namespace dae
 
 		void Update(const float deltaTime);
 		void LateUpdate(const float deltaTime);
-		void Render();
 		void SetActive(int idx);
 
 		std::weak_ptr<Scene> GetActiveScene() { return mScenes.at(mActiveSceneIdx); }

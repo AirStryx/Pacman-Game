@@ -14,11 +14,6 @@ void dae::SceneManager::LateUpdate(const float deltaTime)
 	mScenes.at(mActiveSceneIdx)->LateUpdate(deltaTime);
 }
 
-void dae::SceneManager::Render()
-{
-	mScenes.at(mActiveSceneIdx)->Render();
-}
-
 //makes 1 scene active so it only renders/ updates the scene shown (saves power)
 void dae::SceneManager::SetActive(int idx)
 {
