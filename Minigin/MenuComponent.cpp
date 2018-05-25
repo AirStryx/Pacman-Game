@@ -24,6 +24,11 @@ void MenuComponent::Update(const float deltaTime)
 	m_CurrCount += deltaTime;
 }
 
+void MenuComponent::LateUpdate(const float deltaTime)
+{
+	UNREFERENCED_PARAMETER(deltaTime);
+}
+
 void MenuComponent::Render()
 {
 }

@@ -6,6 +6,12 @@
 #include "InputComponent.h"
 #include "RenderComponent.h"
 #include "TextureComponent.h"
+
+#include "RailComponent.h"
+#include "MoveRailComponent.h"
+#include "MoveComponent.h"
+#include "InputComponent.h"
+
 #include "TextComponent.h"
 
 dae::GameObject::~GameObject() = default;
@@ -17,6 +23,17 @@ void dae::GameObject::Update(const float deltaTime)
 		for (int i = 0; i < m_Components.size(); i++)
 		{
 			m_Components[i]->Update(deltaTime);
+		}
+	}
+}
+
+void dae::GameObject::LateUpdate(const float deltaTime)
+{
+	if (m_IsAlive)
+	{
+		for (int i = 0; i < m_Components.size(); i++)
+		{
+			m_Components[i]->LateUpdate(deltaTime);
 		}
 	}
 }
@@ -53,6 +70,47 @@ void dae::GameObject::SetPosition(float x, float y)
 		text->SetPosition(m_Position.x, m_Position.y);
 	}
 
+}
+
+void dae::GameObject::ResetPos()
+{
+	std::shared_ptr<RailComponent> r = std::static_pointer_cast<RailComponent>(GetComponent(Types::INPUT));
+	std::shared_ptr<MoveRailComponent> mr = std::static_pointer_cast<MoveRailComponent>(GetComponent(Types::MOVE));
+	std::shared_ptr<InputComponent> i = std::static_pointer_cast<InputComponent>(GetComponent(Types::INPUT));
+	std::shared_ptr<MoveComponent> m = std::static_pointer_cast<MoveComponent>(GetComponent(Types::MOVE));
+
+	if (r != nullptr || mr != nullptr || i != nullptr || m != nullptr)
+	{
+		SetPosition(m_StartPos.x, m_StartPos.y);
+		SetOldPos(Pos{ m_StartPos.x, m_StartPos.y });
+
+
+		if (r != nullptr)
+		{
+			r->ResetPos();
+		}
+
+		if (mr != nullptr)
+		{
+			mr->ResetPos();
+		}
+
+		if (i != nullptr)
+		{
+			i->ResetPos();
+		}
+
+		if (m != nullptr)
+		{
+			m->ResetPos();
+		}
+	}
+	
+}
+
+Pos dae::GameObject::GetPosition()
+{
+	return m_Position;
 }
 
 void dae::GameObject::AddComponent(std::shared_ptr<BaseComponent> comp)

@@ -161,28 +161,40 @@ void MoveRailComponent::Update(const float deltaTime)
 	}
 
 	//movement code
-	Pos pos = m_GO.lock()->GetPosition();
+	m_GO.lock()->SetOldPos(m_GO.lock()->GetPosition());
 	switch (m_MoveDir)
 	{
 	case MoveDirection::UP:
-		m_GO.lock()->SetPosition(pos.x, pos.y - (100 * deltaTime));
+		m_NewPos.x = m_GO.lock()->GetOldPos().x;
+		m_NewPos.y = m_GO.lock()->GetOldPos().y - (100 * deltaTime);
 		break;
 	case MoveDirection::DOWN:
-		m_GO.lock()->SetPosition(pos.x, pos.y + (100 * deltaTime));
+		m_NewPos.x = m_GO.lock()->GetOldPos().x;
+		m_NewPos.y = m_GO.lock()->GetOldPos().y + (100 * deltaTime);
 		break;
 	case MoveDirection::LEFT:
-		m_GO.lock()->SetPosition(pos.x - (100 * deltaTime), pos.y);
+		m_NewPos.x = m_GO.lock()->GetOldPos().x - (100 * deltaTime);
+		m_NewPos.y = m_GO.lock()->GetOldPos().y;
 		break;
 	case MoveDirection::RIGHT:
-		m_GO.lock()->SetPosition(pos.x + (100 * deltaTime), pos.y);
+		m_NewPos.x = m_GO.lock()->GetOldPos().x + (100 * deltaTime);
+		m_NewPos.y = m_GO.lock()->GetOldPos().y;
 		break;
 	case MoveDirection::NONE:
+		m_NewPos.x = m_GO.lock()->GetOldPos().x;
+		m_NewPos.y = m_GO.lock()->GetOldPos().y;
 		break;
 	default:
 		break;
 
 
 	}
+}
+
+void MoveRailComponent::LateUpdate(const float deltaTime)
+{
+	UNREFERENCED_PARAMETER(deltaTime);
+	m_GO.lock()->SetPosition(m_NewPos.x, m_NewPos.y);
 }
 
 void MoveRailComponent::Render()

@@ -30,6 +30,11 @@ void ScoreComponent::Update(const float deltaTime)
 	}
 }
 
+void ScoreComponent::LateUpdate(const float deltaTime)
+{
+	UNREFERENCED_PARAMETER(deltaTime);
+}
+
 void ScoreComponent::Render()
 {
 }

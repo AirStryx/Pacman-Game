@@ -8,8 +8,9 @@ public:
 	LivesComponent();
 	~LivesComponent();
 	void Update(const float deltaTime) override;
+	void LateUpdate(const float deltaTime) override;
 	void Render() override;
-	void Hit() { --m_Lives; }
+	void Hit();
 
 	void SetLives(int lives) { m_Lives = lives; }
 

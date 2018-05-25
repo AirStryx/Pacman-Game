@@ -8,6 +8,7 @@ public:
 
 	//overrides
 	void Update(const float deltaTime) override;
+	void LateUpdate(const float deltaTime) override;
 	void Render() override;
 
 	//setter functions

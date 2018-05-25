@@ -11,11 +11,13 @@ namespace dae
 		void Add(const std::shared_ptr<GameObject>& object);
 
 		void Update(const float deltaTime);
+		void LateUpdate(const float deltaTime);
 		void Render() const;
 		void SetAmountPickups(int amount) { m_PickUps = amount; }
 		void DecrementPickups() { --m_PickUps; }
 
 		std::string GetName() { return mName; }
+		void ResetLocations();
 
 		~Scene();
 		Scene(const Scene& other) = delete;

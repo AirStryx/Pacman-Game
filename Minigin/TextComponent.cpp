@@ -18,8 +18,7 @@ void TextComponent::Update(const float deltaTime)
 	UNREFERENCED_PARAMETER(deltaTime);
 	if (mNeedsUpdate)
 	{
-		const SDL_Color color = { 255,255,255 }; // only white text is supported now
-		const auto surf = TTF_RenderText_Blended(mFont->GetFont(), mText.c_str(), color);
+		const auto surf = TTF_RenderText_Blended(mFont->GetFont(), mText.c_str(), m_Color);
 		if (surf == nullptr) {
 			std::stringstream ss; ss << "Render text failed: " << SDL_GetError();
 			throw std::runtime_error(ss.str().c_str());
@@ -32,6 +31,11 @@ void TextComponent::Update(const float deltaTime)
 		SDL_FreeSurface(surf);
 		mTexture = std::make_shared<dae::Texture2D>(texture);
 	}
+}
+
+void TextComponent::LateUpdate(const float deltaTime)
+{
+	UNREFERENCED_PARAMETER(deltaTime);
 }
 
 void TextComponent::Render()
@@ -58,5 +62,11 @@ void TextComponent::SetPosition(float x, float y)
 void TextComponent::SetFont(std::shared_ptr<dae::Font> font)
 {
 	mFont = font;
+	mNeedsUpdate = true;
+}
+
+void TextComponent::SetColor(SDL_Color col)
+{
+	m_Color = col;
 	mNeedsUpdate = true;
 }

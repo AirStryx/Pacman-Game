@@ -10,6 +10,7 @@ namespace dae
 		Scene & CreateScene(const std::string& name);
 
 		void Update(const float deltaTime);
+		void LateUpdate(const float deltaTime);
 		void Render();
 		void SetActive(int idx);
 

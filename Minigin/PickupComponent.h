@@ -7,6 +7,7 @@ public:
 	PickupComponent();
 	~PickupComponent();
 	void Update(const float deltaTime) override;
+	void LateUpdate(const float deltaTime) override;
 	void Render() override;
 
 	void SetRadius(float radius) { m_radius = radius; }
@@ -18,7 +19,9 @@ public:
 
 private:
 	std::vector<std::weak_ptr<dae::GameObject>> m_PickUppers;
+	std::weak_ptr<dae::GameObject> m_Pickupper;
 	float m_radius{ 0.f };
+	bool m_isPickedUp{ false };
 	int m_deltaScore{10};
 	bool m_IsBig{ false };
 };

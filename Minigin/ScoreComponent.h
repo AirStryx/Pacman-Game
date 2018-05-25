@@ -8,6 +8,7 @@ public:
 	~ScoreComponent();
 
 	void Update(const float deltaTime) override;
+	void LateUpdate(const float deltaTime) override;
 	void Render() override;
 
 	void incrementScore(int deltaScore) { m_Score += deltaScore; m_ScoreChanged = true; }

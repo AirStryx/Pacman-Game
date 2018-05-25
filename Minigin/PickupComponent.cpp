@@ -30,8 +30,18 @@ void PickupComponent::Update(const float deltaTime)
 		float pickupperRadius = std::static_pointer_cast<TextureComponent>(go.lock()->GetComponent(Types::TEXTURE))->getWidth() / 2;
 		if (length < m_radius / 2 + pickupperRadius)
 		{
-			PickedUp(go);
+			m_isPickedUp = true;
+			m_Pickupper = go;
 		}
+	}
+}
+
+void PickupComponent::LateUpdate(const float deltaTime)
+{
+	UNREFERENCED_PARAMETER(deltaTime);
+	if (m_isPickedUp)
+	{
+		PickedUp(m_Pickupper);
 	}
 }
 

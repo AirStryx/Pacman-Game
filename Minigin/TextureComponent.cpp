@@ -18,6 +18,11 @@ void TextureComponent::Update(const float deltaTime)
 	UNREFERENCED_PARAMETER(deltaTime);
 }
 
+void TextureComponent::LateUpdate(const float deltaTime)
+{
+	UNREFERENCED_PARAMETER(deltaTime);
+}
+
 void TextureComponent::Render()
 {
 	if (mTexture != nullptr)

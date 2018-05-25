@@ -16,12 +16,29 @@ PlayerCollisionComponent::~PlayerCollisionComponent()
 
 void PlayerCollisionComponent::Update(const float deltaTime)
 {
+	if (m_Type != CharacterTypes::Pacman)
+	{
+		if (m_ISScared)
+		{
+			m_strongTimer += deltaTime;
+
+			if (m_strongTimer >= m_strongMax)
+			{
+				ResetTexture();
+			}
+		}
+	}
+}
+
+void PlayerCollisionComponent::LateUpdate(const float deltaTime)
+{
+	UNREFERENCED_PARAMETER(deltaTime);
 	if (m_Type == CharacterTypes::Pacman)
 	{
 		for (auto check : m_ObjectsToCheck)
 		{
-			Pos myPos = m_GO.lock()->GetPosition();
-			Pos ghostPos = check.lock()->GetPosition();
+			Pos myPos = m_GO.lock()->GetOldPos();
+			Pos ghostPos = check.lock()->GetOldPos();
 			Pos betweenVec{ myPos.x - ghostPos.x, myPos.y - ghostPos.y };
 			float length = sqrt(pow(betweenVec.x, 2) + pow(betweenVec.y, 2));
 
@@ -39,22 +56,10 @@ void PlayerCollisionComponent::Update(const float deltaTime)
 				{
 					GotHit();
 				}
-				
-			}
-		
-			
-		}
-	}
-	else
-	{
-		if (m_ISScared)
-		{
-			m_strongTimer += deltaTime;
 
-			if (m_strongTimer >= m_strongMax)
-			{
-				ResetTexture();
 			}
+
+
 		}
 	}
 }

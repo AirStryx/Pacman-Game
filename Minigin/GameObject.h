@@ -12,13 +12,16 @@ namespace dae
 	{
 	public:
 		void Update(const float deltaTime);
+		void LateUpdate(const float deltaTime);
 		void Render() const;
 
 		void SetPosition(float x, float y);
 		void setStartPos(Pos position) { m_StartPos = position; }
-		void ResetPos() { SetPosition(m_StartPos.x, m_StartPos.y); }
+		void ResetPos();
 
-		Pos GetPosition() { return m_Position; };
+		Pos GetPosition();
+		Pos GetOldPos() { return m_OldPos; }
+		void SetOldPos(Pos pos) { m_OldPos = pos; }
 		void AddComponent(std::shared_ptr<BaseComponent> comp);
 		std::shared_ptr<BaseComponent> GetComponent(Types type);
 		void Kill() { m_IsAlive = false; }
@@ -32,9 +35,12 @@ namespace dae
 
 	private:
 		bool m_IsAlive{ true };
-		Transform mTransform;
+		//Transform mTransform;
 		std::shared_ptr<Texture2D> mTexture;
 		std::vector<std::shared_ptr<BaseComponent>> m_Components;
+
+
+		Pos m_OldPos;
 		Pos m_Position{ 0,0 };
 		Pos m_StartPos;
 	};

@@ -17,6 +17,11 @@ void RenderComponent::Update(const float deltaTime)
 	UNREFERENCED_PARAMETER(deltaTime);
 }
 
+void RenderComponent::LateUpdate(const float deltaTime)
+{
+	UNREFERENCED_PARAMETER(deltaTime);
+}
+
 void RenderComponent::Render()
 {
 }

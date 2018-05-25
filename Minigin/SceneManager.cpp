@@ -9,6 +9,11 @@ void dae::SceneManager::Update(const float deltaTime)
 	mScenes.at(mActiveSceneIdx)->Update(deltaTime);
 }
 
+void dae::SceneManager::LateUpdate(const float deltaTime)
+{
+	mScenes.at(mActiveSceneIdx)->LateUpdate(deltaTime);
+}
+
 void dae::SceneManager::Render()
 {
 	mScenes.at(mActiveSceneIdx)->Render();
@@ -20,7 +25,10 @@ void dae::SceneManager::SetActive(int idx)
 	if (idx > -1 && idx < mScenes.size())
 	{
 		mActiveSceneIdx = idx;
+		mScenes.at(mActiveSceneIdx)->ResetLocations();
 	}
+
+
 }
 
 //returns scene idx if not found it will return -1

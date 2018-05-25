@@ -12,15 +12,18 @@ class InputComponent : public BaseComponent
 		InputComponent();
 		~InputComponent();
 		void Update(const float deltaTime) override;
+		void LateUpdate(const float deltaTime) override;
 		void Render() override;
 		void SetCommand(ControllerButton button, std::unique_ptr<Command>& com);
 		void SetMoveDirection(MoveDirection dir);
 		void SetController(int id) { ControllerID = id; }
+		void ResetPos() { m_NewPos = m_GO.lock()->GetPosition(); }
 		
 		void HandleInput();
 
 	protected:
 		int ControllerID{ 0 };
+		Pos m_NewPos{};
 		std::unique_ptr<Command> DpadUp;
 		std::unique_ptr<Command> DpadDown;
 		std::unique_ptr<Command> DpadLeft;

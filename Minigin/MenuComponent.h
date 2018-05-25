@@ -11,6 +11,8 @@ public:
 	MenuComponent();
 	~MenuComponent();
 	void Update(const float deltaTime) override;
+	void LateUpdate(const float deltaTime) override;
+
 	void Render() override;
 	void SetCommand(ControllerButton button, std::unique_ptr<Command>& com);
 	void StartGame();

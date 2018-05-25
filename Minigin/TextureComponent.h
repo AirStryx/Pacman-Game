@@ -9,6 +9,7 @@ public:
 	TextureComponent();
 	~TextureComponent();
 	void Update(const float deltaTime) override;
+	void LateUpdate(const float deltaTime) override;
 	void Render() override;
 	void SetTexture(const std::string& filename);
 	void SetPosition(float x, float y, float width = 0.f, float height = 0.f);

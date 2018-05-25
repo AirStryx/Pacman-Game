@@ -11,6 +11,7 @@ public:
 	BaseComponent(Types type);
 	virtual ~BaseComponent();
 	virtual void Update(const float deltaTime) = 0;
+	virtual void LateUpdate(const float deltaTime) = 0;
 	virtual void Render() = 0;
 	void SetGO(const std::weak_ptr<dae::GameObject>& go) { m_GO = go; }
 	

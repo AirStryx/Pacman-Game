@@ -28,6 +28,8 @@ void RailComponent::Update(const float deltaTime)
 	//reset range
 	m_InRangeOfCP = false;
 	//Check if it is In range
+
+	Pos test1 = m_GO.lock()->GetPosition();
 	for (auto cp : m_CornerPoints)
 	{
 		Pos goPos = m_GO.lock()->GetPosition();
@@ -45,12 +47,13 @@ void RailComponent::Update(const float deltaTime)
 			break;
 		}
 	}
+	Pos test2 = m_GO.lock()->GetPosition();
 	//if it is set everything accordingly
 	if (m_InRangeOfCP)
 	{
 		m_AllowedDirection = m_LastCP.m_AllowedDirections;
 	}
-
+	Pos test3 = m_GO.lock()->GetPosition();
 	//if you just got out of range
 	if (LastRun && !m_InRangeOfCP)
 	{
@@ -99,28 +102,41 @@ void RailComponent::Update(const float deltaTime)
 	//movement code
 	dae::InputManager::GetInstance().ProcessInput(ControllerID);
 	HandleInput();
-	Pos pos = m_GO.lock()->GetPosition();
+	Pos test = m_GO.lock()->GetPosition();
+	m_GO.lock()->SetOldPos(test);
 	switch (m_Direction)
 	{
 	case MoveDirection::UP:
-		m_GO.lock()->SetPosition(pos.x, pos.y - (100 * deltaTime));
+		m_NewPos.x = m_GO.lock()->GetOldPos().x;
+		m_NewPos.y = m_GO.lock()->GetOldPos().y - (100 * deltaTime);
 		break;
 	case MoveDirection::DOWN:
-		m_GO.lock()->SetPosition(pos.x, pos.y + (100 * deltaTime));
+		m_NewPos.x = m_GO.lock()->GetOldPos().x;
+		m_NewPos.y = m_GO.lock()->GetOldPos().y + (100 * deltaTime);
 		break;
 	case MoveDirection::LEFT:
-		m_GO.lock()->SetPosition(pos.x - (100 * deltaTime), pos.y);
+		m_NewPos.x = m_GO.lock()->GetOldPos().x - (100 * deltaTime);
+		m_NewPos.y = m_GO.lock()->GetOldPos().y;
 		break;
 	case MoveDirection::RIGHT:
-		m_GO.lock()->SetPosition(pos.x + (100 * deltaTime), pos.y);
+		m_NewPos.x = m_GO.lock()->GetOldPos().x + (100 * deltaTime);
+		m_NewPos.y = m_GO.lock()->GetOldPos().y;
 		break;
 	case MoveDirection::NONE:
+		m_NewPos.x = m_GO.lock()->GetOldPos().x;
+		m_NewPos.y = m_GO.lock()->GetOldPos().y;
 		break;
 	default:
 		break;
 
 
 	}
+}
+
+void RailComponent::LateUpdate(const float deltaTime)
+{
+	UNREFERENCED_PARAMETER(deltaTime);
+	m_GO.lock()->SetPosition(m_NewPos.x, m_NewPos.y);
 }
 
 void RailComponent::Render()
