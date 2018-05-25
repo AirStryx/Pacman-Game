@@ -10,7 +10,8 @@ enum class Types
 	MOVE,
 	MENU,
 	PLAYERCOL,
-	LIFE
+	LIFE,
+	FPS
 };
 enum class CharacterTypes
 {
