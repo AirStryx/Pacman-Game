@@ -4,7 +4,7 @@
 class ScoreComponent : public BaseComponent
 {
 public:
-	ScoreComponent();
+	ScoreComponent(std::shared_ptr<dae::GameObject> go);
 	~ScoreComponent();
 
 	void Update(const float deltaTime) override;

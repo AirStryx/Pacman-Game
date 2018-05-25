@@ -6,8 +6,8 @@
 #include "TextComponent.h"
 
 
-MenuComponent::MenuComponent()
-	:BaseComponent(Types::MENU)
+MenuComponent::MenuComponent(std::shared_ptr<dae::GameObject> go)
+	:BaseComponent(Types::MENU, go)
 {
 }
 
@@ -60,13 +60,18 @@ void MenuComponent::LowerMenu()
 	{
 		m_CurrCount = 0;
 		auto font = dae::ResourceManager::GetInstance().LoadFont("Lingua.otf", 20);
-		if (m_idx < m_MainOptions.size())
+		if (m_idx < int(m_MainOptions.size()))
 		{
-			std::static_pointer_cast<TextComponent>(m_MainOptions.at(m_idx).lock()->GetComponent(Types::TEXT))->SetFont(font);
-			++m_idx;
+			auto text = std::static_pointer_cast<TextComponent>(m_MainOptions.at(m_idx).lock()->GetComponent(Types::TEXT));
+			if (text != nullptr)
+			{
+				text->SetFont(font);
+				++m_idx;
+			}
+			
+			
 		}
-
-		if (m_idx >= m_MainOptions.size())
+		if (m_idx >= int(m_MainOptions.size()))
 		{
 			m_idx = int(m_MainOptions.size()) - 1;
 		}
@@ -84,8 +89,12 @@ void MenuComponent::HigherMenu()
 		auto font = dae::ResourceManager::GetInstance().LoadFont("Lingua.otf", 20);
 		if (m_idx > 0)
 		{
-			std::static_pointer_cast<TextComponent>(m_MainOptions.at(m_idx).lock()->GetComponent(Types::TEXT))->SetFont(font);
-			--m_idx;
+			auto text = std::static_pointer_cast<TextComponent>(m_MainOptions.at(m_idx).lock()->GetComponent(Types::TEXT));
+			if (text != nullptr)
+			{
+				text->SetFont(font);
+				--m_idx;
+			}
 		}
 		SetBig();
 	}
@@ -96,7 +105,11 @@ void MenuComponent::SetBig()
 	if (m_MainOptions.size() > 0)
 	{
 		auto font = dae::ResourceManager::GetInstance().LoadFont("Lingua.otf", 28);
-		std::static_pointer_cast<TextComponent>(m_MainOptions.at(m_idx).lock()->GetComponent(Types::TEXT))->SetFont(font);
+		auto text = std::static_pointer_cast<TextComponent>(m_MainOptions.at(m_idx).lock()->GetComponent(Types::TEXT));
+		if (text != nullptr)
+		{
+			text->SetFont(font);
+		}
 	}
 }
 

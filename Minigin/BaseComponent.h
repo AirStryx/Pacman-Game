@@ -8,7 +8,7 @@ namespace dae
 class BaseComponent
 {
 public:
-	BaseComponent(Types type);
+	BaseComponent(Types type, std::shared_ptr<dae::GameObject> go);
 	virtual ~BaseComponent();
 	virtual void Update(const float deltaTime) = 0;
 	virtual void LateUpdate(const float deltaTime) = 0;

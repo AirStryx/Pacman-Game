@@ -7,7 +7,7 @@
 class TextComponent : public BaseComponent
 {
 public:
-	TextComponent();
+	TextComponent(std::shared_ptr<dae::GameObject> go);
 	~TextComponent();
 	void Update(const float deltaTime) override;
 	void LateUpdate(const float deltaTime) override;

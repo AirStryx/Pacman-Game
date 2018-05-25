@@ -4,8 +4,8 @@
 #include <string>
 
 
-ScoreComponent::ScoreComponent()
-	:BaseComponent(Types::SCORE)
+ScoreComponent::ScoreComponent(std::shared_ptr<dae::GameObject> go)
+	:BaseComponent(Types::SCORE, go)
 {
 }
 

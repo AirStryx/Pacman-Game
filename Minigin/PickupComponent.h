@@ -4,7 +4,7 @@
 class PickupComponent : public BaseComponent
 {
 public:
-	PickupComponent();
+	PickupComponent(std::shared_ptr<dae::GameObject> go);
 	~PickupComponent();
 	void Update(const float deltaTime) override;
 	void LateUpdate(const float deltaTime) override;

@@ -6,7 +6,7 @@
 class RailComponent : public InputComponent
 {
 public:
-	RailComponent();
+	RailComponent(std::shared_ptr<dae::GameObject> go);
 	virtual ~RailComponent();
 
 	//overrides

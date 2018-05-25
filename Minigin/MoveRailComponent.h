@@ -3,7 +3,7 @@
 class MoveRailComponent : public MoveComponent
 {
 public:
-	MoveRailComponent();
+	MoveRailComponent(std::shared_ptr<dae::GameObject> go);
 	virtual ~MoveRailComponent();
 
 	//overrides

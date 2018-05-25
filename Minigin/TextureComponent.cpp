@@ -3,8 +3,8 @@
 #include "Renderer.h"
 
 
-TextureComponent::TextureComponent()
-	:BaseComponent(Types::TEXTURE)
+TextureComponent::TextureComponent(std::shared_ptr<dae::GameObject> go)
+	:BaseComponent(Types::TEXTURE, go)
 	, m_renderWithSize(false)
 {
 }

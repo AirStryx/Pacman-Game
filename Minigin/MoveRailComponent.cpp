@@ -4,7 +4,8 @@
 #include "TextureComponent.h"
 
 
-MoveRailComponent::MoveRailComponent()
+MoveRailComponent::MoveRailComponent(std::shared_ptr<dae::GameObject> go)
+	:MoveComponent(go)
 {
 	m_AllowedDirection.push_back(MoveDirection::UP);
 	m_AllowedDirection.push_back(MoveDirection::DOWN);

@@ -5,7 +5,8 @@
 #include "command.h"
 #include "Renderer.h"
 
-RailComponent::RailComponent()
+RailComponent::RailComponent(std::shared_ptr<dae::GameObject> go)
+	:InputComponent(go)
 {
 	m_AllowedDirection.push_back(MoveDirection::UP);
 	m_AllowedDirection.push_back(MoveDirection::DOWN);

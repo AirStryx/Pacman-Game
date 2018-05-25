@@ -3,8 +3,8 @@
 #include "GameObject.h"
 
 
-MoveComponent::MoveComponent()
-	:BaseComponent(Types::MOVE)
+MoveComponent::MoveComponent(std::shared_ptr<dae::GameObject> go)
+	:BaseComponent(Types::MOVE, go)
 {
 }
 

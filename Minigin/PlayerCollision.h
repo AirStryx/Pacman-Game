@@ -5,7 +5,7 @@
 class PlayerCollisionComponent : public BaseComponent
 {
 public:
-	PlayerCollisionComponent();
+	PlayerCollisionComponent(std::shared_ptr<dae::GameObject> go);
 	~PlayerCollisionComponent();
 	void Update(const float deltaTime) override;
 	void LateUpdate(const float deltaTime) override;

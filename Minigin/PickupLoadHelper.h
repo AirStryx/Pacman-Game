@@ -2,6 +2,7 @@
 #include "MiniginPCH.h"
 #include "RailComponent.h"
 #include "MoveRailComponent.h"
+#include "RenderComponent.h"
 
 
 void LoadPickups(dae::Scene& scene, std::vector<std::shared_ptr<dae::GameObject>> Pickuppers)
@@ -9,11 +10,13 @@ void LoadPickups(dae::Scene& scene, std::vector<std::shared_ptr<dae::GameObject>
 	for (int i = 0; i < 185; i++)
 	{
 		auto Go = std::make_shared<dae::GameObject>();
-		auto Texture = std::make_shared<TextureComponent>();
+		auto Texture = std::make_shared<TextureComponent>(Go);
 		Texture->SetTexture("PickUpSmall.png");
 		Texture->setWidthHeight(32.f, 24.f);
 		Go->AddComponent(Texture);
-		auto pickUp = std::make_shared<PickupComponent>();
+		auto ren = std::make_shared<RenderComponent>(Go);
+		Go->AddComponent(ren);
+		auto pickUp = std::make_shared<PickupComponent>(Go);
 		for (auto pickupper : Pickuppers)
 		{
 			pickUp->AddPickupper(pickupper);
@@ -614,11 +617,15 @@ void LoadPickups(dae::Scene& scene, std::shared_ptr<dae::GameObject> Pickupper)
 	for (int i = 0; i < 185; i++)
 	{
 		auto Go = std::make_shared<dae::GameObject>();
-		auto Texture = std::make_shared<TextureComponent>();
+		auto Texture = std::make_shared<TextureComponent>(Go);
+
+		auto ren = std::make_shared<RenderComponent>(Go);
+		Go->AddComponent(ren);
+
 		Texture->SetTexture("PickUpSmall.png");
 		Texture->setWidthHeight(32.f, 24.f);
 		Go->AddComponent(Texture);
-		auto pickUp = std::make_shared<PickupComponent>();
+		auto pickUp = std::make_shared<PickupComponent>(Go);
 		pickUp->AddPickupper(Pickupper);
 		pickUp->SetGO(Go);
 		pickUp->SetRadius(24.f);

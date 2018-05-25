@@ -4,8 +4,8 @@
 #include "TextureComponent.h"
 #include "ScoreComponent.h"
 
-PlayerCollisionComponent::PlayerCollisionComponent()
-	:BaseComponent(Types::PLAYERCOL)
+PlayerCollisionComponent::PlayerCollisionComponent(std::shared_ptr<dae::GameObject> go)
+	:BaseComponent(Types::PLAYERCOL, go)
 {
 }
 

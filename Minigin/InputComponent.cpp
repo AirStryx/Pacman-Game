@@ -6,8 +6,8 @@
 
 
 
-InputComponent::InputComponent()
-	:BaseComponent(Types::INPUT)
+InputComponent::InputComponent(std::shared_ptr<dae::GameObject> go)
+	:BaseComponent(Types::INPUT, go)
 {
 }
 

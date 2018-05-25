@@ -5,7 +5,7 @@
 class LivesComponent : public BaseComponent
 {
 public:
-	LivesComponent();
+	LivesComponent(std::shared_ptr<dae::GameObject> go);
 	~LivesComponent();
 	void Update(const float deltaTime) override;
 	void LateUpdate(const float deltaTime) override;

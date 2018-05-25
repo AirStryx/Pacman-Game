@@ -22,7 +22,7 @@ void dae::SceneManager::Render()
 //makes 1 scene active so it only renders/ updates the scene shown (saves power)
 void dae::SceneManager::SetActive(int idx)
 {
-	if (idx > -1 && idx < mScenes.size())
+	if (idx > -1 && idx < int(mScenes.size()))
 	{
 		mActiveSceneIdx = idx;
 		mScenes.at(mActiveSceneIdx)->ResetLocations();
@@ -34,7 +34,7 @@ void dae::SceneManager::SetActive(int idx)
 //returns scene idx if not found it will return -1
 int dae::SceneManager::FindScene(std::string Name)
 {
-	for (int i = 0; i < mScenes.size(); ++i)
+	for (int i = 0; i < int(mScenes.size()); ++i)
 	{
 		if (mScenes[i]->GetName() == Name)
 		{

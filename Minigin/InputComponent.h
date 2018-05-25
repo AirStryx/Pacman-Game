@@ -9,7 +9,7 @@ class Command;
 class InputComponent : public BaseComponent
 	{
 	public:
-		InputComponent();
+		InputComponent(std::shared_ptr<dae::GameObject> go);
 		~InputComponent();
 		void Update(const float deltaTime) override;
 		void LateUpdate(const float deltaTime) override;

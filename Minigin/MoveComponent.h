@@ -4,7 +4,7 @@
 class MoveComponent : public BaseComponent
 {
 public:
-	MoveComponent();
+	MoveComponent(std::shared_ptr<dae::GameObject> go);
 	~MoveComponent();
 
 	void Update(const float deltaTime) override;

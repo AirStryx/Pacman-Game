@@ -3,8 +3,8 @@
 #include "Renderer.h"
 
 
-TextComponent::TextComponent()
-	:BaseComponent(Types::TEXT)
+TextComponent::TextComponent(std::shared_ptr<dae::GameObject> go)
+	:BaseComponent(Types::TEXT, go)
 	, mNeedsUpdate(false)
 {
 }

@@ -7,8 +7,8 @@
 #include "PlayerCollision.h"
 
 
-PickupComponent::PickupComponent()
-	:BaseComponent(Types::PICKUP)
+PickupComponent::PickupComponent(std::shared_ptr<dae::GameObject> go)
+	:BaseComponent(Types::PICKUP, go)
 {
 }
 

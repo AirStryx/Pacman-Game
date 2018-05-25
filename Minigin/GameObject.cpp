@@ -20,7 +20,7 @@ void dae::GameObject::Update(const float deltaTime)
 {
 	if (m_IsAlive)
 	{
-		for (int i = 0; i < m_Components.size(); i++)
+		for (int i = 0; i < int(m_Components.size()); i++)
 		{
 			m_Components[i]->Update(deltaTime);
 		}
@@ -31,7 +31,7 @@ void dae::GameObject::LateUpdate(const float deltaTime)
 {
 	if (m_IsAlive)
 	{
-		for (int i = 0; i < m_Components.size(); i++)
+		for (int i = 0; i < int(m_Components.size()); i++)
 		{
 			m_Components[i]->LateUpdate(deltaTime);
 		}
@@ -43,7 +43,7 @@ void dae::GameObject::Render() const
 
 	if (m_IsAlive)
 	{
-		for (int i = 0; i < m_Components.size(); i++)
+		for (int i = 0; i < int(m_Components.size()); i++)
 		{
 			m_Components[i]->Render();
 		}
@@ -116,7 +116,7 @@ Pos dae::GameObject::GetPosition()
 void dae::GameObject::AddComponent(std::shared_ptr<BaseComponent> comp)
 {
 	bool notSeen = true;
-	for (int i = 0; i < m_Components.size(); i++)
+	for (int i = 0; i < int(m_Components.size()); i++)
 	{
 		if (m_Components[i]->GetType() == comp->GetType())
 		{
@@ -131,7 +131,7 @@ void dae::GameObject::AddComponent(std::shared_ptr<BaseComponent> comp)
 
 std::shared_ptr<BaseComponent> dae::GameObject::GetComponent(Types type)
 {
-	for (int i = 0; i < m_Components.size(); i++)
+	for (int i = 0; i < int(m_Components.size()); i++)
 	{
 		if (m_Components[i]->GetType() == type)
 		{

@@ -6,7 +6,7 @@
 class TextureComponent : public BaseComponent
 {
 public:
-	TextureComponent();
+	TextureComponent(std::shared_ptr<dae::GameObject> go);
 	~TextureComponent();
 	void Update(const float deltaTime) override;
 	void LateUpdate(const float deltaTime) override;

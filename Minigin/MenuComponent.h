@@ -8,7 +8,7 @@ class Command;
 class MenuComponent : public BaseComponent
 {
 public:
-	MenuComponent();
+	MenuComponent(std::shared_ptr<dae::GameObject> go);
 	~MenuComponent();
 	void Update(const float deltaTime) override;
 	void LateUpdate(const float deltaTime) override;

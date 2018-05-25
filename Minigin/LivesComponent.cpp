@@ -3,8 +3,8 @@
 #include "SceneManager.h"
 
 
-LivesComponent::LivesComponent()
-	:BaseComponent(Types::LIFE)
+LivesComponent::LivesComponent(std::shared_ptr<dae::GameObject> go)
+	:BaseComponent(Types::LIFE, go)
 {
 }
 

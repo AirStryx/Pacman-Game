@@ -14,11 +14,7 @@ void dae::Renderer::Init(SDL_Window * window)
 }
 
 void dae::Renderer::Render()
-{
-	SDL_RenderClear(mRenderer);
-
-	SceneManager::GetInstance().Render();
-	
+{	
 	SDL_RenderPresent(mRenderer);
 }
 
@@ -29,6 +25,11 @@ void dae::Renderer::Destroy()
 		SDL_DestroyRenderer(mRenderer);
 		mRenderer = nullptr;
 	}
+}
+
+void dae::Renderer::Clear()
+{
+	SDL_RenderClear(mRenderer);
 }
 
 void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y) const
